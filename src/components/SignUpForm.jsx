@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function SignUpForm() {
+export default function SignUpForm({ setToken }) {
   // Step 6: Create state variables for form inputs and error
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -23,11 +23,11 @@ export default function SignUpForm() {
       // Step 14: Parse the response and log the result
       const result = await response.json();
       console.log(result);
-      
+
       // Assuming the API response contains a token
       // You may want to store this token in state or context for further use
       // Example: setToken(result.token);
-      
+      setToken(result.token); // Set the token in state
     } catch (error) {
       // Step 11: Handle errors and update state
       setError(error.message);
